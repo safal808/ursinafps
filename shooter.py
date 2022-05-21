@@ -9,7 +9,6 @@ ground = Entity(model='plane', collider='box', scale=(200,1,200), texture='stone
 editor_camera = EditorCamera(enabled=False, ignore_paused=True)
 player = FirstPersonController(model='cube', z=-10, color=color.orange, origin_y=-.5, speed=8)
 player.collider = BoxCollider(player, Vec3(0,1,0), Vec3(1,2,1))
-
 gun = Entity(model='gun.obj', parent=camera.ui, position=(0.3,-0.2),rotation=(-5,-12,-4),scale=.2,color=color.black,on_cooldown=False)
 gun.muzzle_flash = Entity(parent=gun, z=1.5, world_scale=.5, model='quad', color=color.yellow, enabled=False)
 shootables_parent = Entity()
@@ -93,7 +92,6 @@ class Enemy(Entity):
         self.health_bar.alpha = 1
 enemies = [Enemy(x=random.randrange(-7, -2)*random.randrange(2,9)) for x in range(20)]
 enemies = [Enemy(z=random.randrange(-7, 2)*random.randrange(2,9)) for z in range(20)]
-
 def pause_input(key):
     if key == 'tab':   
         editor_camera.enabled = not editor_camera.enabled
